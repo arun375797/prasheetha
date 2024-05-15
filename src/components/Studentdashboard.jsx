@@ -56,20 +56,20 @@ const SwipeableTextMobileStepper = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-    <Typography variant="h6" gutterBottom align='center'>
-      NEW COURSES OFFERED FOR YOU <br/>
-    </Typography>
-    <AutoPlaySwipeableViews
-      index={activeStep}
-      onChangeIndex={setActiveStep}
-      enableMouseEvents
-    >
-      {images.map((step, index) => (
-        <Box key={index} component="img" src={step.imgPath} alt={`Step ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
-      ))}
-    </AutoPlaySwipeableViews>
-  </Box>
+    <Box sx={{ width:'50rem' }}>
+      <Typography variant="h6" gutterBottom align='center'>
+        NEW COURSES OFFERED FOR YOU <br/>
+      </Typography>
+      <AutoPlaySwipeableViews
+        index={activeStep}
+        onChangeIndex={setActiveStep}
+        enableMouseEvents
+      >
+        {images.map((step, index) => (
+          <Box key={index} component="img" src={step.imgPath} alt={`Step ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
+        ))}
+      </AutoPlaySwipeableViews>
+    </Box>
   );
 };
 
@@ -82,9 +82,8 @@ const Item = styled('div')(({ theme }) => ({
 }));
 
 const Sidebar = () => {
-
   const location = useLocation();
- const email = location.state.email;
+  const email = location.state.email;
   const [userData, setUserData] = useState({ name: '', batch: '', mark: '' });
 
   useEffect(() => {
@@ -105,31 +104,32 @@ const Sidebar = () => {
     fetchUserData();
   }, []);
 
+
   return (
     <Item style={{ backgroundColor: 'beige', padding: '20px' }}>
-      {/* Display student's name */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
-        
-        <Typography variant="h6">{userData.name}</Typography>
-      </div>
-      {/* Table container with white background */}
-      <TableContainer component={Paper} style={{ backgroundColor: 'white' }}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Batch Name</TableCell>
-              <TableCell>Mark</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>{userData.batchName}</TableCell>
-              <TableCell>{userData.mark}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Item>
+    {/* Display student's name */}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+      <Avatar />
+      <Typography variant="h6">{userData.name}</Typography>
+    </div>
+    {/* Table container with white background */}
+    <TableContainer component={Paper} style={{ backgroundColor: 'white' }}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Batch Name</TableCell>
+            <TableCell>Mark</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>{userData.batchName}</TableCell>
+            <TableCell>{userData.mark}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
+  </Item>
   );
 };
 
