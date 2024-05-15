@@ -27,7 +27,7 @@ const Login = () => {
   };
 
     const handleLogin = () => {
-      axios.post(`http://localhost:3001/api/login`, user)
+      axios.post(`https://proj-backend-1.onrender.com/api/login`, user)
         .then((res) => {
           alert(res.data.message);
           if (res.data.admintoken) {

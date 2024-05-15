@@ -91,7 +91,7 @@ const Sidebar = () => {
     const fetchUserData = async () => {
       try {
         const token = sessionStorage.getItem('studenttoken');
-        const response = await axiosInstance.get('http://localhost:3001/api/student/'+email, {
+        const response = await axiosInstance.get('https://proj-backend-1.onrender.com/api/student/'+email, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -168,7 +168,7 @@ const ExitTestButton = () => {
     const fetchUserData = async () => {
       try {
         const token = sessionStorage.getItem('studenttoken');
-        const response = await axiosInstance.get(`http://localhost:3001/api/student/${email}`, {
+        const response = await axiosInstance.get(`https://proj-backend-1.onrender.com/api/student/${email}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -234,7 +234,7 @@ const ExitTestButton = () => {
       };
   
       const token = sessionStorage.getItem('studenttoken');
-      const response = await axiosInstance.put(`http://localhost:3001/api/student/${email}`, updatedFormData, {
+      const response = await axiosInstance.put(`https://proj-backend-1.onrender.com/api/student/${email}`, updatedFormData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

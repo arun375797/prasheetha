@@ -30,7 +30,7 @@ const Student = () =>{
 
 
 useEffect(()=>{
-  axiosInstance.get("http://localhost:3001/api/"+batch).then((res)=>{
+  axiosInstance.get("https://proj-backend-1.onrender.com/"+batch).then((res)=>{
 setRows(res.data);
   })
   .catch((err)=>{
