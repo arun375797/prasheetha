@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography, Button, Dialog, DialogContent, DialogActions, DialogContentText, DialogTitle, TextField, FormControl, InputLabel, Select, MenuItem, Snackbar, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SwipeableViews from 'react-swipeable-views-react-18-fix'
-import { autoPlay } from '@pjtsearch/react-swipeable-views-utils';
+import { autoPlay } from 'react-swipeable-views-utils';
 import Avatar from '@mui/material/Avatar';
 import { Alert } from '@mui/material';
 import { useLocation, useParams } from 'react-router-dom';
@@ -57,19 +57,19 @@ const SwipeableTextMobileStepper = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Typography variant="h6" gutterBottom align='center'>
-        NEW COURSES OFFERED FOR YOU <br/>
-      </Typography>
-      <AutoPlaySwipeableViews
-        index={activeStep}
-        onChangeIndex={setActiveStep}
-        enableMouseEvents
-      >
-        {images.map((step, index) => (
-          <Box key={index} component="img" src={step.imgPath} alt={`Step ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
-        ))}
-      </AutoPlaySwipeableViews>
-    </Box>
+    <Typography variant="h6" gutterBottom align='center'>
+      NEW COURSES OFFERED FOR YOU <br/>
+    </Typography>
+    <AutoPlaySwipeableViews
+      index={activeStep}
+      onChangeIndex={setActiveStep}
+      enableMouseEvents
+    >
+      {images.map((step, index) => (
+        <Box key={index} component="img" src={step.imgPath} alt={`Step ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
+      ))}
+    </AutoPlaySwipeableViews>
+  </Box>
   );
 };
 
